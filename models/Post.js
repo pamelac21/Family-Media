@@ -13,7 +13,10 @@ Post.init(
         },
         body: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: false,
+            validate: {
+                len: [1,500]
+            }
         },
         user_id: {
             type: DataTypes.INTEGER,

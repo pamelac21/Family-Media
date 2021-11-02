@@ -11,6 +11,7 @@ Comment.init(
             primaryKey: true,
             autoIncrement: true
         },
+        // validate prevents users from commenting an empty string
         comment_text: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -18,6 +19,7 @@ Comment.init(
                 len: [1]
             }
         },
+        // references the id form the User model
         user_id: {
             type: DataTypes.INTEGER,
             references: {
@@ -25,6 +27,7 @@ Comment.init(
                 key: 'id'
             }
         },
+        // references the id form the Post model
         post_id: {
             type: DataTypes.INTEGER,
             references: {
