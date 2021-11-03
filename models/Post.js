@@ -1,3 +1,4 @@
+const { validate } = require('@babel/types');
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -10,6 +11,13 @@ Post.init(
             allowNull: false,
             primaryKey: true,
             autoIncrement: true
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1,50]
+            }
         },
         body: {
             type: DataTypes.STRING,
