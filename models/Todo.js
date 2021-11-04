@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
-class Post extends Model { }
-
-Post.init(
+ 
+class Todo extends Model { }
+ 
+Todo.init (
     {
         id: {
             type: DataTypes.INTEGER,
@@ -18,7 +18,7 @@ Post.init(
                 len: [1,50]
             }
         },
-        body: {
+        list: {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
@@ -32,13 +32,13 @@ Post.init(
                 key: 'id'
             }
         },
-        todo_id: {
-            type:DataTypes.INTEGER,
+        post_id: {
+            type: DataTypes.INTEGER,
             references: {
-                model: 'todo',
+                model: 'post',
                 key: 'id'
             }
-        }
+        }        
     },
     {
         sequelize,
@@ -47,5 +47,5 @@ Post.init(
         modelName: 'post'
     }
 );
-
-module.exports = Post;
+ 
+module.exports = Todo;
