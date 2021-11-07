@@ -4,7 +4,7 @@ const seedComments = require('./comment-seeds');
 
 
 const sequelize = require('../config/connection');
-const seedtodo = require('./todo-seeds');
+const seedtodos = require('./todo-seeds');
 
 const seedAll = async() => {
     await sequelize.sync({ force: true });
