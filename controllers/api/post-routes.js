@@ -22,6 +22,14 @@ router.get('/', (req, res) => {
         }
       },
       {
+        model: Todo,
+        attributes: ['id', 'list', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+       },
+      {
         model: User,
         attributes: ['username']
       }
@@ -53,6 +61,14 @@ router.get('/:id', (req, res) => {
           attributes: ['username']
         }
       },
+      {
+        model: Todo,
+        attributes: ['id', 'list', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+       },
       {
         model: User,
         attributes: ['username']
