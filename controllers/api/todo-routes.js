@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
           ],
           include: [
             {
-              model: Todo, //check if current of 'post' needs changing
+              model: Todo,
               attributes: ['id', 'list', 'post_id', 'user_id', 'created_at'],
               include: {
                 model: User,
