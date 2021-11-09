@@ -1,6 +1,6 @@
 const router = require('express').Router();
 //const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment, Todo } = require('../models');
 
 // get all posts for homepage
 router.get('/', (req, res) => {
@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
   Post.findAll({
     attributes: [
       'id',
-      'post_url',
       'title',
       'created_at',
     ],
@@ -16,6 +15,14 @@ router.get('/', (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: Todo,
+        attributes: ['id', 'list', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -49,7 +56,6 @@ router.get('/post/:id', (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
       'title',
       'created_at',
     ],
@@ -57,6 +63,14 @@ router.get('/post/:id', (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: Todo,
+        attributes: ['id', 'list', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']

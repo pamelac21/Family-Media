@@ -1,5 +1,4 @@
-
-const { Comment } = require('../models');
+const { Todo } = require('../models');
 
 const todoData = [{    
         title: "Lorem ipsum dolor sit amet",
@@ -21,6 +20,6 @@ const todoData = [{
     }
 ];
 
-const seedtodo = () => Post.bulkCreate(todoData);
+const seedtodos = () => Todo.bulkCreate(todoData);
 
-module.exports = seedtodo;
+module.exports = seedtodos;

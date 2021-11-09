@@ -35,7 +35,7 @@ Todo.init (
         post_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'post',
+                model: 'todo',
                 key: 'id'
             }
         }        

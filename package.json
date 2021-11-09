@@ -2,10 +2,16 @@
   "name": "verbose-potato",
   "version": "1.0.0",
   "description": "",
+<<<<<<< HEAD
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "seeds": "node seeds/index.js"
+=======
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+>>>>>>> calendar
   },
   "repository": {
     "type": "git",
@@ -19,6 +25,7 @@
   },
   "homepage": "https://github.com/spurgason/verbose-potato#readme",
   "dependencies": {
+<<<<<<< HEAD
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.27.1",
     "connect-session-sequelize": "^7.1.2",
@@ -33,5 +40,10 @@
   },
   "devDependencies": {
     "jest": "^27.3.1"
+=======
+    "@hapi/hapi": "^19.2.0",
+    "dotenv": "^10.0.0",
+    "googleapis": "^89.0.0"
+>>>>>>> calendar
   }
 }

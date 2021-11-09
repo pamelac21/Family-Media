@@ -1,6 +1,6 @@
 const router = require('express').Router();
 //const sequelize = require('../../config/connection');
-const { Post, User, Comment } = require('../../models');
+const { Post, User, Comment, Todo } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // get all users
@@ -15,12 +15,20 @@ router.get('/', (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
         }
       },
+      {
+        model: Todo,
+        attributes: ['id', 'list', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+       },
       {
         model: User,
         attributes: ['username']
@@ -47,12 +55,20 @@ router.get('/:id', (req, res) => {
     include: [
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        attributes: ['id', 'body', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
         }
       },
+      {
+        model: Todo,
+        attributes: ['id', 'list', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+       },
       {
         model: User,
         attributes: ['username']
@@ -75,7 +91,6 @@ router.get('/:id', (req, res) => {
 router.post('/', withAuth, (req, res) => {
   Post.create({
     title: req.body.title,
-    post_url: req.body.post_url,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))

@@ -1,6 +1,6 @@
 const router = require('express').Router();
 //const sequelize = require('../config/connection');
-const { Post, User, Comment } = require('../models');
+const { Post, User, Comment, Todo } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all posts for dashboard
@@ -13,7 +13,6 @@ router.get('/', withAuth, (req, res) => {
     },
     attributes: [
       'id',
-      'post_url',
       'title',
       'created_at',
     ],
@@ -21,6 +20,14 @@ router.get('/', withAuth, (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: Todo,
+        attributes: ['id', 'list', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
@@ -46,7 +53,6 @@ router.get('/edit/:id', withAuth, (req, res) => {
   Post.findByPk(req.params.id, {
     attributes: [
       'id',
-      'post_url',
       'title',
       'created_at',
     ],
@@ -54,6 +60,14 @@ router.get('/edit/:id', withAuth, (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username']
+        }
+      },
+      {
+        model: Todo,
+        attributes: ['id', 'list', 'post_id', 'user_id', 'created_at'],
         include: {
           model: User,
           attributes: ['username']
