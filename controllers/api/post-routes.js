@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
     attributes: [
       'id',
       'title',
+      'body',
       'created_at',
     ],
     include: [
@@ -50,6 +51,7 @@ router.get('/:id', (req, res) => {
     attributes: [
       'id',
       'title',
+      'body',
       'created_at',
     ],
     include: [
@@ -104,7 +106,8 @@ router.post('/', (req, res) => {
 router.put('/:id', (req, res) => {
   Post.update(
     {
-      title: req.body.title
+      title: req.body.title,
+      body: req.body.body
     },
     {
       where: {
