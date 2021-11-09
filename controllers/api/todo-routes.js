@@ -25,9 +25,10 @@ router.get('/', (req, res) => {
     });
 });
 //
-router.post('/', withAuth, (req, res) => {
+router.post('/', (req, res) => {
 
     Todo.create({
+      title: req.body.title,
       list: req.body.list,
       user_id: req.session.user_id,
       post_id: req.body.post_id
