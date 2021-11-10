@@ -80,15 +80,19 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
-      email: req.body.email
+  username: req.body.username
     }
-  }).then(dbUserData => {
+  }).then(async (dbUserData) => {
     if (!dbUserData) {
       res.status(400).json({ message: 'No user with that email address!' });
       return;
     }
 
-    const validPassword = dbUserData.checkPassword(req.body.password);
+    console.log(dbUserData)
+
+    const validPassword = await dbUserData.checkPassword(req.body.password);
+
+    console.log(validPassword)
 
     if (!validPassword) {
       res.status(400).json({ message: 'Incorrect password!' });
