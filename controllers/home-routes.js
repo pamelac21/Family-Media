@@ -49,6 +49,12 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/calendar', (req, res) => {
+  res.render('calendar');
+},
+router.get('/list', (req, res) => {
+  res.render('list');
+},
 // get single post
 router.get('/post/:id', (req, res) => {
   Post.findOne({
@@ -100,7 +106,7 @@ router.get('/post/:id', (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
+})));
 
 router.get('/login', (req, res) => {
   if (req.session.loggedIn) {
