@@ -21,9 +21,7 @@
   "homepage": "https://github.com/spurgason/verbose-potato#readme",
   "dependencies": {
     "@hapi/hapi": "^19.2.0",
-    "dotenv": "^10.0.0",
-    "googleapis": "^89.0.0"
-
+    "googleapis": "^89.0.0",
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.27.1",
     "connect-session-sequelize": "^7.1.2",
