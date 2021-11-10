@@ -1,28 +1,28 @@
-<section>
+<section class="container">
   <h2>Create New Post</h2>
 
   <form class="new-post-form">
     <div>
-      <label for="post-title">Title</label>
+      <label for="post-title">Title</label><br>
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
-      <label for="post-body">Body</label>
-      <textarea id="post-body" name="post-body"></textarea>
+      <label for="post-body">Body</label><br>
+      <textarea id="post-body" name="post-body-text"></textarea>
     </div>
 
-    <button type="submit" class="btn">Create</button>
+    <button type="submit" class="btn btn-success">Create</button>
   </form>
 </section>
 
 {{#if posts.length}}
-<section>
+<section class="container created-post">
   <h2>Your Posts</h2>
   <ol>
     {{#each posts as |post|}}
     <li>
       {{> post-info post}}
-      <a href="/dashboard/edit/{{post.id}}" class="edit-link">Edit post</a>
+      <a href="/dashboard/edit/{{post.id}}" class="btn btn-secondary">Edit post</a>
     </li>
     {{/each}}
   </ol>

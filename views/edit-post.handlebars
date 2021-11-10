@@ -17,21 +17,10 @@
             |
             <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
         </div>
-        <button type="submit">Save post</button>
-        <button type="button" class="delete-post-btn">Delete post</button>
+        <button type="submit" class="btn btn-success">Save post</button>
+        <button type="button" class="btn btn-danger">Delete post</button>
     </form>
 </article>
 
-<form class="comment-form">
-    <div>
-        <textarea name="comment-body"></textarea>
-    </div>
-
-    <div>
-        <button type="submit">Add Comment</button>
-    </div>
-</form>
-
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>
-<script src="/javascript/comment.js"></script>
