@@ -2,11 +2,11 @@
   "name": "verbose-potato",
   "version": "1.0.0",
   "description": "",
-
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seeds": "node seeds/index.js"
+    "seeds": "node seeds/index.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,6 @@
     "@hapi/hapi": "^19.2.0",
     "dotenv": "^10.0.0",
     "googleapis": "^89.0.0",
-
     "bcrypt": "^5.0.1",
     "cloudinary": "^1.27.1",
     "connect-session-sequelize": "^7.1.2",
