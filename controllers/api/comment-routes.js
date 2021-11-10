@@ -1,16 +1,54 @@
 const router = require('express').Router();
-const { Comment } = require('../../models');
+const {  Post, User, Comment, Todo  } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
 
 router.get('/', (req, res) => {
-  Comment.findAll()
+  Comment.findAll({
+    attributes: [
+      'id',
+      'comment_text',
+      'created_at',
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
     .then(dbCommentData => res.json(dbCommentData))
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
     });
 });
+
+///////////////////GET 1
+router.get('/:id', (req, res) => {
+  Comment.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'comment_text',
+      'created_at',
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+  })
+  .then(dbCommentData => res.json(dbCommentData))
+  .catch(err => {
+  console.log(err);
+  res.status(500).json(err);
+});
+  }),
+////////////////////////
 
 router.post('/', (req, res) => {
 
