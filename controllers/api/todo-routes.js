@@ -25,7 +25,34 @@ router.get('/', (req, res) => {
       res.status(500).json(err);
     });
 });
-//
+//////////////////////GET 1///////////////////////////
+router.get('/:id', (req, res) => {
+  Todo.findOne({
+    where: {
+      id: req.params.id
+    },
+    attributes: [
+      'id',
+      'title',
+      'list',
+      'created_at',
+    ],
+    include: [
+      {
+        model: User,
+        attributes: ['username']
+      }
+    ]
+})
+.then(dbTodoData => res.json(dbTodoData))
+.catch(err => {
+console.log(err);
+res.status(500).json(err);
+});
+
+
+  }),
+/////////////////////////////////////////////////////////
 router.post('/', (req, res) => {
 
     Todo.create({
