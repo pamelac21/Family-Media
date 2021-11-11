@@ -10,7 +10,7 @@
         </div>
         <div>
             <p>Edit Body</p>
-            <textarea name="post-body">{{post.body}}</textarea>
+            <textarea name="post-body" value="{{post.body}}"></textarea>
         </div>
         <div>
             Posted by you on {{format_date post.created_at}}
@@ -18,7 +18,7 @@
             <a href="/post/{{post.id}}">{{post.comments.length}} {{format_plural "comment" post.comments.length}}</a>
         </div>
         <button type="submit" class="btn btn-success">Save post</button>
-        <button type="button" class="btn btn-success">Delete post</button>
+        <button type="button" class="delete-post-btn btn btn-success">Delete post</button>
     </form>
 </article>
 
