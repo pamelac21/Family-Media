@@ -38,6 +38,9 @@ Post.init(
                 model: 'todo',
                 key: 'id'
             }
+        },
+        url: {
+            type:DataTypes.STRING
         }
     },
     {

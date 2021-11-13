@@ -1,18 +1,33 @@
-<section>
+<section class="container">
   <h2>Create New Post</h2>
 
   <form class="new-post-form">
     <div>
-      <label for="post-title">Title</label>
+      <label for="post-title">Title</label><br>
       <input type="text" id="post-title" name="post-title" />
     </div>
     <div>
-      <label for="post-body">Body</label>
+      <label for="post-body">Body</label><br>
       <textarea id="post-body" name="post-body"></textarea>
     </div>
-
-    <button type="submit" class="btn">Create</button>
+    <button type="button" class="upload_widget_opener">Upload images</button>
+    <button type="submit" class="btn btn-success">Create</button>
   </form>
 </section>
+
+{{#if posts.length}}
+<section class="container created-post">
+  <h2>Your Posts</h2>
+  <ol>
+    {{#each posts as |post|}}
+    <li>
+      {{> post-info post}}
+      <a href="/dashboard/edit/{{post.id}}" class="btn btn-secondary">Edit post</a>
+      <button class="btn btn-secondary delete" data-id={{post.id}}>Delete post</button>
+    </li>
+    {{/each}}
+  </ol>
+</section>
+{{/if}}
 
 <script src="/javascript/add-post.js"></script>
