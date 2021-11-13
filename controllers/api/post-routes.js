@@ -12,6 +12,7 @@ router.get('/', withAuth, (req, res) => {
       'title',
       'body',
       'created_at',
+      'url',
     ],
     include: [
       {
@@ -36,7 +37,9 @@ router.get('/', withAuth, (req, res) => {
       }
     ]
   })
-    .then(dbPostData => res.json(dbPostData))
+    .then(dbPostData => {
+      console.log(dbPostData);
+      res.json(dbPostData)})
     .catch(err => {
       console.log(err);
       res.status(500).json(err);
@@ -44,6 +47,7 @@ router.get('/', withAuth, (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+
   Post.findOne({
     where: {
       id: req.params.id
@@ -53,6 +57,7 @@ router.get('/:id', (req, res) => {
       'title',
       'body',
       'created_at',
+      'url',
     ],
     include: [
       {
@@ -91,10 +96,12 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   Post.create({
     title: req.body.title,
     body: req.body.body,
-    user_id: req.session.user_id
+    user_id: req.session.user_id,
+    url: req.body.imgUrl
   })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {

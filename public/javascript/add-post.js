@@ -1,5 +1,30 @@
+let imgUrl;
+
+document.querySelector(".upload_widget_opener").addEventListener("click", function() {
+    myUploadWidget = cloudinary.openUploadWidget({cloudName: "drjgfdbdc", uploadPreset: "pl94uxvo" }, (error, result) => { 
+        if (result.event === 'success') {
+            let img = document.createElement("img");
+            img.src = result.info.url;
+            imgUrl = result.info.url;
+        }
+        
+    });
+})
+
+document.querySelector('.delete').addEventListener("click", async function(event) {
+    const response = await fetch('/api/posts/' + event.target.getAttribute("data-id"), {
+        method: 'DELETE',
+        
+    })
+    if (response.status = 200) {
+        location.reload();
+    }
+    console.log(response)
+})
+
 async function newFormHandler(event) {
     event.preventDefault();
+    console.log(imgUrl);
 
     const title = document.querySelector('input[name="post-title"]').value;
     const body = document.querySelector('textarea[name="post-body"]').value;
@@ -8,7 +33,8 @@ async function newFormHandler(event) {
         method: 'POST',
         body: JSON.stringify({
             title,
-            body
+            body,
+            imgUrl
         }),
         headers: {
             'Content-Type': 'application/json'

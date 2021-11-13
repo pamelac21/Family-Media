@@ -15,6 +15,7 @@ router.get('/', withAuth, (req, res) => {
       'id',
       'title',
       'created_at',
+      'url',
     ],
     include: [
       {
@@ -92,6 +93,27 @@ router.get('/edit/:id', withAuth, (req, res) => {
       }
     })
     .catch(err => {
+      res.status(500).json(err);
+    });
+});
+
+
+router.delete('/:id', (req, res) => {
+  console.log('id', req.params.id);
+  Post.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbPostData => {
+      if (!dbPostData) {
+        res.status(404).json({ message: 'No post found with this id' });
+        return;
+      }
+      res.json(dbPostData);
+    })
+    .catch(err => {
+      console.log(err);
       res.status(500).json(err);
     });
 });

@@ -10,7 +10,7 @@
       <label for="post-body">Body</label><br>
       <textarea id="post-body" name="post-body"></textarea>
     </div>
-
+    <button type="button" class="upload_widget_opener">Upload images</button>
     <button type="submit" class="btn btn-success">Create</button>
   </form>
 </section>
@@ -23,6 +23,7 @@
     <li>
       {{> post-info post}}
       <a href="/dashboard/edit/{{post.id}}" class="btn btn-secondary">Edit post</a>
+      <button class="btn btn-secondary delete" data-id={{post.id}}>Delete post</button>
     </li>
     {{/each}}
   </ol>
