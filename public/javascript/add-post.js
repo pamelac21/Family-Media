@@ -11,17 +11,6 @@ document.querySelector(".upload_widget_opener").addEventListener("click", functi
     });
 })
 
-document.querySelector('.delete').addEventListener("click", async function(event) {
-    const response = await fetch('/api/posts/' + event.target.getAttribute("data-id"), {
-        method: 'DELETE',
-        
-    })
-    if (response.status = 200) {
-        location.reload();
-    }
-    console.log(response)
-})
-
 async function newFormHandler(event) {
     event.preventDefault();
     console.log(imgUrl);
