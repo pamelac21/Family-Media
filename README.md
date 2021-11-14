@@ -59,7 +59,7 @@ THEN I am signed out of the site
 
 
 ## Usage
-[Deployed Site](heroku-link)
+[Deployed Site](https://family-media-uncc.herokuapp.com/)
 
 Navigate to the above website. Join the community. Enjoy!
 
