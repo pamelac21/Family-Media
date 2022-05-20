@@ -1,6 +1,6 @@
 # FAMILY MEDIA
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)
+[Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)
 
 ## User Story
 ```md
