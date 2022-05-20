@@ -114,3 +114,8 @@ Navigate to the above website. Join the community. Enjoy!
 [Pamela](https://github.com/pamelac21)
 
 [Josh](https://github.com/mcswajl)
+
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
