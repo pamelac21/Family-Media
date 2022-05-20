@@ -22,6 +22,19 @@ FAMILY app, each member of the family has equal access to view everyone’s sche
 photos/videos uploaded by other family members. We’re the solution you’ve been looking for. The Family app
 will exponentially decrease the stress of weekly family planning.
 
+
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Deployed Site](#deployed-site)
+- [Tech Used](#tech-used)
+- [Contact](#contact)
+- [License](#license)
+- [Contributing](#contributing)
+
+
 ## Acceptance Criteria
 ```md
 GIVEN a simple communication platform
